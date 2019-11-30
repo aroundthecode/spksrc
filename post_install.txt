@@ -1,0 +1,7 @@
+ln -s _sysconfigdata_m_linux_x86_64-linux-gnu.py _sysconfigdata_m_linux_arm-linux-gnueabihf.py
+
+ln -s _cffi_backend.cpython-36m-x86_64-linux-gnu.so _cffi_backend.cpython-36m-arm-linux-gnueabihf.so 
+
+/volume1/@appstore/python3/bin/pip3 install aiohttp-cors
+/volume1/@appstore/python3/bin/pip3 install netdisco
+/volume1/@appstore/python3/bin/pip3 install xmltodict

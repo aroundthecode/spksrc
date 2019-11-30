@@ -37,6 +37,9 @@ POST_STRIP_TARGET = python3_extra_install
 BUSYBOX_CONFIG = usrmng nice daemon
 ENV += BUSYBOX_CONFIG="$(BUSYBOX_CONFIG)"
 
+## Makefile variable needed to fix "_openssl.so: undefined symbol: pthread_atfork" error when using "xiaomi_aqara" component.
+export CFLAGS=-pthread
+
 include ../../mk/spksrc.spk.mk
 
 .PHONY: python3_extra_install
