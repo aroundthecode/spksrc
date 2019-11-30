@@ -8,4 +8,4 @@ env:
   - SPK_ARCH=armada370
 
 script:
-  - docker run -it -v ${PWD}/spksrc:/spksrc -w /spksrc synocommunity/spksrc bash -c 'make clean && make setup && make -C spk/python3 arch-${SPK_ARCH}'
+  - docker run -it -v ${TRAVIS_BUILD_DIR}:/spksrc -w /spksrc synocommunity/spksrc bash -c 'make clean && make setup && make -C spk/python3 arch-${SPK_ARCH}'
