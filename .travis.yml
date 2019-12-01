@@ -10,7 +10,6 @@ before_install:
 
 script:
   - docker run -it -v ${PWD}:/spksrc -w /spksrc synocommunity/spksrc bash -c 'make clean  && make setup && make -C spk/python3 arch-armada370'| grep "Leaving directory" 2>&1
-  - find . -name *.whl
-  - find . -name *.spk
-  - for i in $(find . -name *.whl); do echo $i; curl -F package=@${i} https://${GEMFIRE_TOKEN}@push.fury.io/aroundthecode/; done 
-  - for i in $(find . -name *.spk); do echo $i; curl -F package=@${i} https://${GEMFIRE_TOKEN}@push.fury.io/aroundthecode/; done 
+  - tar -xvf packages/python3_armada370-6.1_3.6.8-9.spk -C packages/
+  - tar -zxvf packages/package.tgz -C packages/
+  - for i in $(ls packages/share/wheelhouse/*.whl); do echo $i; curl -F package=@${i} https://${GEMFIRE_TOKEN}@push.fury.io/aroundthecode/; done 
