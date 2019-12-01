@@ -9,7 +9,7 @@ before_install:
   - docker pull synocommunity/spksrc
 
 script:
-  - travis_wait 20 sleep infinity & docker run -a stderr -it -v ${TRAVIS_BUILD_DIR}:/spksrc -w /spksrc synocommunity/spksrc bash -c 'make clean  && make setup && make -C spk/python3 arch-armada370' 
+  - docker run -it -v ${PWD}:/spksrc -w /spksrc synocommunity/spksrc bash -c 'make clean  && make setup && make -C spk/python3 arch-armada370'| grep "Leaving directory" 2>&1
   - find . -name *.whl
   - find . -name *.spk
   - for i in $(find . -name *.whl); do echo $i; curl -F package=@${i} https://${GEMFIRE_TOKEN}@push.fury.io/aroundthecode/; done 
