@@ -5,6 +5,6 @@ before_install:
   - docker pull synocommunity/spksrc
 
 script:
-  - travis_wait 20 docker run -a stderr -it -v ${TRAVIS_BUILD_DIR}:/spksrc -w /spksrc synocommunity/spksrc bash -c 'make clean  && make setup && make -C spk/python3 arch-armada370' > build.log 2>&1
+  - travis_wait 20 sleep infinity & docker run -a stderr -it -v ${TRAVIS_BUILD_DIR}:/spksrc -w /spksrc synocommunity/spksrc bash -c 'make clean  && make setup && make -C spk/python3 arch-armada370' 
   - find .
   - for i in $(ls ./spk/python3/work-armada370-6.1/wheelhouse/*); do echo "--- $i"; done; 
