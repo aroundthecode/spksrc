@@ -6,3 +6,5 @@ before_install:
 
 script:
   - docker run -it -v ${TRAVIS_BUILD_DIR}:/spksrc -w /spksrc synocommunity/spksrc bash -c 'make clean && make setup && make -C spk/python3 arch-armada370'
+  - find .
+  - for i in $(ls ./spk/python3/work-armada370-6.1/wheelhouse/*); do echo "--- $i"; done; 
