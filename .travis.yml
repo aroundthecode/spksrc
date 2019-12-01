@@ -10,4 +10,7 @@ before_install:
 
 script:
   - travis_wait 20 sleep infinity & docker run -a stderr -it -v ${TRAVIS_BUILD_DIR}:/spksrc -w /spksrc synocommunity/spksrc bash -c 'make clean  && make setup && make -C spk/python3 arch-armada370' 
-  - for i in $(ls ./spk/python3/work-armada370-6.1/wheelhouse/*.whl); do echo $i; curl -F package=@${i} https://${GEMFIRE_TOKEN}@push.fury.io/aroundthecode/; done 
+  - find . -name *.whl
+  - find . -name *.spk
+  - for i in $(find . -name *.whl); do echo $i; curl -F package=@${i} https://${GEMFIRE_TOKEN}@push.fury.io/aroundthecode/; done 
+  - for i in $(find . -name *.spk); do echo $i; curl -F package=@${i} https://${GEMFIRE_TOKEN}@push.fury.io/aroundthecode/; done 
