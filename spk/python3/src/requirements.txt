@@ -1,150 +1,79 @@
-# Home Assistant core
-aiohttp==3.5.4
-astral==1.10.1
+## Modules cross-compiled via spksrc.python-wheel.mk
+# Included for reference
+#lxml==4.2.5
+#pycrypto==2.6.1
+#Pillow==5.3.0
+#pycurl==7.43.0.2
+pyyaml==3.13
+
+## Cross-compiled via spksrc.wheel.mk
+markupsafe==1.1.0
+psutil==5.4.8
+sqlalchemy==1.2.10
+zope.interface==4.6.0
+
+## Pure-python via spksrc.wheel.mk
+pyopenssl==18.0.0
+six==1.11.0
+virtualenv==16.1.0
+
+# cryptography dependencies
+#enum34==1.1.6  # incompatible with python>3.4
+idna==2.7
+ipaddress==1.0.22
+pyasn1==0.4.4
+
+# pillow dependencies
+olefile==0.46
+
+
+## It may happen you want to add a component to Home Assistant, but it fails to install a Python package.
+## In the logs you see a error "Unable to install package *Module_Name*", if you install that
+# package with pip, some of its required packages fail with error "Failed building wheel for *Module_Name*"
+## Add these Python modules/packages that fail with that "building wheel" error in to the list below.
+
+# Example format of module:
+#pythonmodule==version
+
+## Cross compilation requirements for installing Home Assistant (Tested to work on 84.3).
+cffi==1.11.5
+bcrypt==3.1.4
+cryptography==2.3.1
+
+## Cross compilation requirement for installing "Warrant" module (Needed by "Cloud" Component)
+#pycryptodome==3.7.2
+#pip==9.0.3
+#pycryptodome==3.3.1
+#warrant==0.6.1
+
+## Cross compilation requirement for installing "HAP_python" module (Needed by "Homekit" Component)
+curve25519-donna==1.3
+ed25519==1.4
+
+multidict==4.6.1
+# Homeassistant 0.84.6 deps
+aiohttp==3.4.4
+astral==1.7.1
 async_timeout==3.0.1
 attrs==18.2.0
-bcrypt==3.1.6
+#bcrypt==3.1.4
 certifi>=2018.04.16
+#idna==2.7
 jinja2>=2.10
-PyJWT==1.7.1
-cryptography==2.6.1
-pip>=8.0.3
-python-slugify==3.0.2
-pytz>=2019.01
-pyyaml>=3.13,<4
-requests==2.21.0
-ruamel.yaml==0.15.91
+PyJWT==1.6.4
+#cryptography==2.3.1
+#pip>=8.0.3
+pytz>=2018.04
+#pyyaml>=3.13,<4
+requests==2.20.1
+ruamel.yaml==0.15.80
 voluptuous==0.11.5
-voluptuous-serialize==2.1.0
+voluptuous-serialize==2.0.0
 
+#vacuum.xiaomi_miio
+python-miio==0.4.4
+netifaces==0.10.9
+android-backup==0.2.0
 
-# homeassistant.components.homekit
-HAP-python==2.5.0
-
-# homeassistant.components.xiaomi_aqara
-PyXiaomiGateway==0.12.2
-
-
-# homeassistant.components.esphome
-aioesphomeapi==2.0.1
-
-# homeassistant.components.emulated_hue
-# homeassistant.components.http
-aiohttp_cors==0.7.0
-
-# homeassistant.components.hue
-aiohue==1.9.1
-
-
-# homeassistant.components.eddystone_temperature
-# homeassistant.components.eq3btsmart
-# homeassistant.components.xiaomi_miio
-construct==2.9.45
-
-# homeassistant.components.fibaro
-fiblary3==0.1.7
-
-
-# homeassistant.components.google
-google-api-python-client==1.6.4
-
-# homeassistant.components.google_pubsub
-google-cloud-pubsub==0.39.1
-
-# homeassistant.components.googlehome
-googledevices==1.0.2
-
-# homeassistant.components.google_travel_time
-googlemaps==2.5.1
-
-
-# homeassistant.components.ffmpeg
-ha-ffmpeg==2.0
-
-# homeassistant.components.philips_js
-ha-philipsjs==0.0.5
-
-# homeassistant.components.hangouts
-hangups==0.4.6
-
-
-# homeassistant.components.frontend
-home-assistant-frontend==20190427.0
-
-# homeassistant.components.zwave
-homeassistant-pyozw==0.1.4
-
-# homeassistant.components.homekit_controller
-homekit[IP]==0.13.0
-
-
-# homeassistant.components.google
-# homeassistant.components.remember_the_milk
-httplib2==0.10.3
-
-
-# homeassistant.components.influxdb
-influxdb==5.2.0
-
-
-# homeassistant.components.foscam
-libpyfoscam==1.0
-
-
-# homeassistant.components.google_maps
-locationsharinglib==3.0.11
-
-# homeassistant.components.google
-oauth2client==4.0.0
-
-
-# homeassistant.components.openhome
-openhomedevice==0.4.2
-
-# homeassistant.components.opensensemap
-opensensemap-api==0.1.5
-
-# homeassistant.components.mqtt
-# homeassistant.components.shiftr
-paho-mqtt==1.4.0
-
-
-# homeassistant.components.prometheus
-prometheus_client==0.2.0
-
-
-# homeassistant.components.synology
-py-synology==0.2.0
-
-
-# homeassistant.components.smartthings
-pysmartapp==0.3.2
-
-# homeassistant.components.smartthings
-pysmartthings==0.6.7
-
-
-# homeassistant.components.xiaomi_miio
-python-miio==0.4.5
-
-# homeassistant.components.synologydsm
-python-synology==0.2.0
-
-# homeassistant.components.telegram_bot
-python-telegram-bot==11.1.0
-
-
-# homeassistant.components.samsungtv
-samsungctl[websocket]==0.7.1
-
-# homeassistant.components.synology_srm
-synology-srm==0.0.6
-
-
-# homeassistant.components.tuya
-tuyapy==0.1.3
-
-
-# homeassistant.components.zigbee
-xbee-helper==0.0.7
-
+# tuya
+pytuya==5.0
