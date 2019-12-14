@@ -76,4 +76,4 @@ netifaces==0.10.9
 android-backup==0.2.0
 
 # tuya
-pytuya==5.0
+pytuya==6.0
